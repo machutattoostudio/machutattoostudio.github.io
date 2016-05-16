@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="adsApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adsense Test</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+</head>
+
+<body ng-controller="mainController">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Adsense Example</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"> Home</a></li>
+                <li><a href="#about"> About</a></li>
+                <li><a href="#contact"> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="main">
+        <div ng-view></div>
+    </div>
+</body>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+<script>
+	var adsApp = angular.module('adsApp', ['ngRoute']);
+
+	adsApp.config(function($routeProvider) {
+	    $routeProvider
+
+	        .when('/', {
+	        templateUrl: 'view/home.html',
+	        controller: 'mainController'
+	    })
+
+	    .when('/about', {
+	        templateUrl: 'view/about.html',
+	        controller: 'aboutController'
+	    })
+
+	    .when('/contact', {
+	        templateUrl: 'view/contact.html',
+	        controller: 'contactController'
+	    });
+	});
+
+	adsApp.controller('mainController', function($scope) {
+
+	    $scope.message = 'Home Page Data';
+
+	});
+
+	adsApp.controller('contactController', function($scope) {
+
+	    $scope.message = 'contact Page Data';
+
+	});
+
+	adsApp.controller('aboutController', function($scope) {
+
+	    $scope.message = 'About Page Data';
+
+	});
+
+	adsApp.controller('AdsenseController', function($scope, $routeParams) {
+
+	    $scope.message = 'AdsenseController Page Data';
+	    console.log($scope.adClient);
+
+	    var gads = document.createElement("script");
+	    gads.async = true;
+	    gads.type = "text/javascript";
+	    var useSSL = "https:" == document.location.protocol;
+	    gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+	    var node = document.getElementsByTagName("script")[0];
+	    node.parentNode.insertBefore(gads, node);
+
+	    var gptAdSlots = [];
+	    googletag.cmd.push(function() {
+	        var mapping = googletag.sizeMapping().
+	        addSize([1336, 294], [728, 90]).
+	        addSize([0, 0], [468, 60]).build();
+
+	        googletag.defineSlot('/41507610/WittyFeed_story_top_ATF_leaderboard', [728, 90], $scope.adClient).addService(googletag.pubads());
+
+	        googletag.pubads().collapseEmptyDivs(true, true);
+	        googletag.enableServices();
+	        googletag.display($scope.adClient);
+	    });
+	    
+
+	});
+
+	adsApp.directive('adsense', function() {
+	    return {
+	        restrict: 'E',
+	        replace: true,
+	        template: "<div id='{{adClient}}'>.</div>",
+	        scope: {
+	            adClient: '@'
+	        },
+	        controller: 'AdsenseController'
+	    };
+	});
+</script>
+<script type="text/javascript" src="http://ox-d.vatsana.servedbyopenx.com/w/1.0/jstag?nc=41507610-wittyfeed2"></script>
+
+</html>
