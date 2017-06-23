@@ -1,1 +1,2 @@
 gem install jekyll-coffeescript jekyll-watch jekyll-assets
+plugins: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
