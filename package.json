@@ -1,7 +1,7 @@
 {
   "name": "tattoo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Best tattoo studio in bangalore best tattoo shop in bangalore best tattoo artist in bangalore",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
