@@ -938,6 +938,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
     </script>
+	<!-- WhatsHelp.io widget -->
+<script type="text/javascript">
+    (function () {
+        var options = {
+            facebook: "1414701648815345", // Facebook page ID
+            whatsapp: "+919994469941", // WhatsApp number
+            email: "machutattoostudio@gmail.com", // Email
+            sms: "+919844827266", // Sms phone number
+            call: "+919844827266", // Call phone number
+            company_logo_url: "//storage.whatshelp.io/widget/a8/a88c/a88c682e4e7fe511ec0938518ef8a301/10563140_1457976761154500_6441932367212827276_n.jpg", // URL of company logo (png, jpg, gif)
+            greeting_message: "Hello, How may we help you?\n Its very easy to contact us !! Take a free online consultation and book your appointment.", // Text of greeting message
+            call_to_action: "We're Online now! Book ur appointment", // Call to action
+            button_color: "#A8CE50", // Color of button
+            position: "right", // Position may be 'right' or 'left'
+            order: "facebook,whatsapp,sms,email,call" // Order of buttons
+        };
+        var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+</script>
+<!-- /WhatsHelp.io widget -->
 </body>
 
 </html>
