@@ -1005,9 +1005,10 @@ cite {
 /* ==========================================================================
 Footer
 ========================================================================== */
+/* Commented to avoid white space at bottom
 footer {
     padding: 100px 0
-}
+}*/
 footer p {
     color: #c7cacc;
     font-size: 12px;
